@@ -6,14 +6,14 @@ import java.time.LocalDate;
 public class Reserva {
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
-    private float precioTotal;
-    private float litrosGasolina;
-    private boolean indicadorEntrega;
-    private String metodoPago;
     private String numeroConfirmacion;
+    private String precioTotal;
+    private String litrosGasolina;
+    private String indicadorEntrega;
+    private String metodoPago;    
     private String comentarios;
 
-    public Reserva(float precioTotal, float litrosGasolina, boolean indicadorEntrega, String metodoPago, String numeroConfirmacion, String comentarios) {
+    public Reserva(String numeroConfirmacion, String precioTotal, String litrosGasolina, String indicadorEntrega, String metodoPago, String comentarios) {
         this.precioTotal = precioTotal;
         this.litrosGasolina = litrosGasolina;
         this.indicadorEntrega = indicadorEntrega;
@@ -38,27 +38,27 @@ public class Reserva {
         this.fechaFin = fechaFin;
     }
 
-    public float getPrecioTotal() {
+    public String getPrecioTotal() {
         return precioTotal;
     }
 
-    public void setPrecioTotal(float precioTotal) {
+    public void setPrecioTotal(String precioTotal) {
         this.precioTotal = precioTotal;
     }
 
-    public float getLitrosGasolina() {
+    public String getLitrosGasolina() {
         return litrosGasolina;
     }
 
-    public void setLitrosGasolina(float litrosGasolina) {
+    public void setLitrosGasolina(String litrosGasolina) {
         this.litrosGasolina = litrosGasolina;
     }
 
-    public boolean isIndicadorEntrega() {
+    public String isIndicadorEntrega() {
         return indicadorEntrega;
     }
 
-    public void setIndicadorEntrega(boolean indicadorEntrega) {
+    public void setIndicadorEntrega(String indicadorEntrega) {
         this.indicadorEntrega = indicadorEntrega;
     }
 

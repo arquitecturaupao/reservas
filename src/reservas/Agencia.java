@@ -3,10 +3,10 @@ package reservas;
 
 public class Agencia {
     private String gerente;
-    private int nroEmpleados;
+    private String nroEmpleados;
     private String telefono;
 
-    public Agencia(String gerente, int nroEmpleados, String telefono) {
+    public Agencia(String gerente, String nroEmpleados, String telefono) {
         this.gerente = gerente;
         this.nroEmpleados = nroEmpleados;
         this.telefono = telefono;
@@ -20,11 +20,11 @@ public class Agencia {
         this.gerente = gerente;
     }
 
-    public int getNroEmpleados() {
+    public String getNroEmpleados() {
         return nroEmpleados;
     }
 
-    public void setNroEmpleados(int nroEmpleados) {
+    public void setNroEmpleados(String nroEmpleados) {
         this.nroEmpleados = nroEmpleados;
     }
 

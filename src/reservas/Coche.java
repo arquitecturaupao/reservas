@@ -6,11 +6,11 @@ public class Coche {
     private String modelo;
     private String color;
     private String marca;
-    private float kilometrajeActual;
+    private String kilometrajeActual;
     private String estadoGeneral;
-    private int anoFabricacion;
+    private String anoFabricacion;
 
-    public Coche(String matricula, String modelo, String color, String marca, float kilometrajeActual, String estadoGeneral, int anoFabricacion) {
+    public Coche(String matricula, String modelo, String color, String marca, String kilometrajeActual, String estadoGeneral, String anoFabricacion) {
         this.matricula = matricula;
         this.modelo = modelo;
         this.color = color;
@@ -52,11 +52,11 @@ public class Coche {
         this.marca = marca;
     }
 
-    public float getKilometrajeActual() {
+    public String getKilometrajeActual() {
         return kilometrajeActual;
     }
 
-    public void setKilometrajeActual(float kilometrajeActual) {
+    public void setKilometrajeActual(String kilometrajeActual) {
         this.kilometrajeActual = kilometrajeActual;
     }
 
@@ -68,11 +68,11 @@ public class Coche {
         this.estadoGeneral = estadoGeneral;
     }
 
-    public int getAnoFabricacion() {
+    public String getAnoFabricacion() {
         return anoFabricacion;
     }
 
-    public void setAnoFabricacion(int anoFabricacion) {
+    public void setAnoFabricacion(String anoFabricacion) {
         this.anoFabricacion = anoFabricacion;
     }
     

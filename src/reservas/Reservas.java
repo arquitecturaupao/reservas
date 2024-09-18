@@ -10,6 +10,10 @@ public class Reservas {
     
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static DatosClientes clientes = new DatosClientes();
+    static DatosCoches coches = new DatosCoches();
+    static DatosAgencias agencias = new DatosAgencias();
+    static DatosGarajes garajes = new DatosGarajes();
+    static DatosReservas reservas = new DatosReservas();
 
     public static void main(String[] args) throws IOException {
         
@@ -39,14 +43,14 @@ public class Reservas {
                     System.out.println("LISTA DE CLIENTES => " + clientes.obtenerClientes());
                     System.out.println(clientes.listarClientes());
                     break;
-                /*case 7:
-                    System.out.println("LISTA DE AUTOS => " + huespedes.obtenerHuespeds());
-                    System.out.println(huespedes.listarHuespeds());
+                case 7:
+                    System.out.println("LISTA DE AUTOS => " + coches.obtenerCoches());
+                    System.out.println(coches.listarCoches());
                     break;
                 case 8:
-                    System.out.println("LISTA DE RESERVAS => " + huespedes.obtenerHuespeds());
-                    System.out.println(huespedes.listarHuespeds());
-                    break;*/
+                    System.out.println("LISTA DE RESERVAS => " + reservas.obtenerReservas());
+                    System.out.println(coches.listarCoches());
+                    break;
                 }
             }while (opc !=9);
             System.out.println("\n*****Hasta pronto...*****\n");
@@ -113,19 +117,124 @@ public class Reservas {
     }
     
     static void registrarCoche() throws IOException {
-    
+        String matricula, modelo, color, marca, estadoGeneral,kilometrajeActual,anoFabricacion;
+
+        do {
+            System.out.print("Ingresar Matricula: ");
+            matricula = br.readLine();
+        } while (matricula.trim().length() == 0);
+        if (coches.existeMatricula(matricula)) {
+            System.out.println("Coche ya se encuentra registrado.\n");
+        } else {
+            do {
+                System.out.print("Modelo: ");
+                modelo = br.readLine().trim().toUpperCase();
+            } while (modelo.trim().length() == 0);
+            do {
+                System.out.print("Color: ");
+                color = br.readLine().trim().toUpperCase();
+            } while (color.trim().length() == 0);
+            do {
+                System.out.print("Marca: ");
+                marca = br.readLine().trim().toUpperCase();
+            } while (marca.trim().length() == 0);
+            do {
+                System.out.print("Kilometraje: ");
+                kilometrajeActual = br.readLine().trim().toUpperCase();
+            } while (kilometrajeActual.trim().length() == 0);
+            do {
+                System.out.print("Estado general: ");
+                estadoGeneral = br.readLine().trim().toUpperCase();
+            } while (estadoGeneral.trim().length() == 0);
+            do {
+                System.out.print("Año de fabricacion: ");
+                anoFabricacion = br.readLine().trim().toUpperCase();
+            } while (anoFabricacion.trim().length() == 0);
+            coches.registrarCoche(new Coche(matricula, modelo, color, marca, kilometrajeActual, estadoGeneral, anoFabricacion));
+            System.out.println("\nCoche registrado satisfactoriamente.\n");
+        }
     }
     
     static void registrarGaraje() throws IOException{
-    
+        String ubicacion, capacidad, horario;
+
+        do {
+            System.out.print("Ingresar Ubicacion: ");
+            ubicacion = br.readLine();
+        } while (ubicacion.trim().length() == 0);
+        if (garajes.existeGaraje(ubicacion)) {
+            System.out.println("Garaje ya se encuentra registrado.\n");
+        } else {
+            do {
+                System.out.print("Capacidad del Garaje: ");
+                capacidad = br.readLine().trim().toUpperCase();
+            } while (capacidad.trim().length() == 0);
+            do {
+                System.out.print("Horario de operacion: ");
+                horario = br.readLine().trim().toUpperCase();
+            } while (horario.trim().length() == 0);
+            garajes.registrarGaraje(new Garaje(ubicacion, capacidad, horario));
+            System.out.println("\nGaraje registrado correctamente.\n");
+        }
     }
     
     static void registrarAgencia() throws IOException{
-    
+        String gerente, nroEmpleados, telefono;
+
+        do {
+            System.out.print("Ingresar Gerente: ");
+            gerente = br.readLine();
+        } while (gerente.trim().length() == 0);
+        if (agencias.existeAgencia(gerente)) {
+            System.out.println("Agencia ya se encuentra registrada.\n");
+        } else {
+            do {
+                System.out.print("Numero de empleados: ");
+                nroEmpleados = br.readLine().trim().toUpperCase();
+            } while (nroEmpleados.trim().length() == 0);
+            do {
+                System.out.print("Teléfono: ");
+                telefono = br.readLine().trim().toUpperCase();
+            } while (telefono.trim().length() == 0);
+            agencias.registrarAgencia(new Agencia(gerente, nroEmpleados, telefono));
+            System.out.println("\nAgencia registrada satisfactoriamente.\n");
+        }
     }
     
     static void registrarReserva() throws IOException{
+        String numeroConfirmacion, precioTotal, litrosGasolina, indicadorEntrega, metodoPago, comentarios;
         
+        do {
+            System.out.print("Ingresar Numero de confirmacion: ");
+            numeroConfirmacion = br.readLine();
+        } while (numeroConfirmacion.trim().length() == 0);
+        if (reservas.existeReserva(numeroConfirmacion)) {
+            System.out.println("Reserva ya existe.\n");
+        } else {
+            do {
+                System.out.print("Precio Total: ");
+                precioTotal = br.readLine().trim().toUpperCase();
+            } while (precioTotal.trim().length() == 0);
+            do {
+                System.out.print("Litros de Gasolina: ");
+                litrosGasolina = br.readLine().trim().toUpperCase();
+            } while (litrosGasolina.trim().length() == 0);
+            do {
+                System.out.print("Indicador de entrega: ");
+                indicadorEntrega = br.readLine().trim().toUpperCase();
+            } while (indicadorEntrega.trim().length() == 0);
+            do {
+                System.out.print("Metodo de pago: ");
+                metodoPago = br.readLine().trim().toUpperCase();
+            } while (metodoPago.trim().length() == 0);
+            do {
+                System.out.print("Comentarios: ");
+                comentarios = br.readLine().trim().toUpperCase();
+            } while (comentarios.trim().length() == 0);
+            
+            reservas.registrarReserva(new Reserva(numeroConfirmacion, precioTotal, litrosGasolina, indicadorEntrega, metodoPago, comentarios));
+            System.out.println("\nReserva exitosa.\n");
+        }
     }
 
 }
